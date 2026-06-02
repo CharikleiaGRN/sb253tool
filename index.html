@@ -453,7 +453,7 @@ Entity will need to report scope 1 and 2 emissions by August 10, 2026. To help s
 </p>
 
 <p>
-The next section helps determine the likely reporting pathway, including whether reporting may occur through a consolidated parent report.
+The next section helps determine the reporting pathway, including whether reporting may occur through a consolidated parent report.
 </p>
 
 <p>
@@ -626,7 +626,7 @@ infoHtml:`
 <p>If one of these applies, this screening tool will treat the entity as not required to report under § 38532 for the 2026 reporting cycle.</p>
 `,
 answers:[
-{label:"Yes",value:"yes",note:"Likely not subject to reporting requirements under HSC § 38532 for the 2026 reporting cycle"},
+{label:"Yes",value:"yes",note:"Not subject to reporting requirements under HSC § 38532 for the 2026 reporting cycle"},
 {label:"No",value:"no",note:"Continue to U.S.-based test"}
 ]
 },
@@ -634,38 +634,38 @@ answers:[
 id:"us_based",
 tag:"Step 2",
 title:"Is the entity based in the United States?",
-help:"Determine whether the entity is formed under United States (U.S.), state, District of Columbia, or Congressional law.",
+help:"Determine whether the entity is formed under United States (U.S.), state, or District of Columbia law; or under an act of Congress.",
 infoTitle:"Why this matters",
 infoHtml:`
-<p>HSC § 38532 applies to entities based in the United States. Non-U.S.-based entities are generally not directly subject, although a foreign parent may choose to report on behalf of its U.S. subsidiaries.</p>
+<p>HSC § 38532 applies to entities based in the United States. Non-U.S.-based entities are generally not subject, although a foreign parent may choose to report on behalf of its U.S. subsidiaries.</p>
 `,
 answers:[
-{label:"Yes",value:"yes",note:"Continue to California business test"},
-{label:"No",value:"no",note:"Likely not subject to reporting requirements under HSC § 38532 for the 2026 reporting cycle"}
+{label:"Yes",value:"yes",note:"Continue to ''doing business in California test''"},
+{label:"No",value:"no",note:"Not subject to reporting requirements under HSC § 38532 for the 2026 reporting cycle"}
 ]
 },
 {
 id:"doing_business",
 tag:"Step 3",
 title:"Is the entity doing business in California?",
-help:"Use the definition based on California tax law.",
+help:"Use the definition set forth in the Regulation.",
 infoTitle:"How to think about this",
 infoHtml:`
-<p>Doing business in California, as defined in § 96072, means the entity meets any of the following:</p>
+<p>Doing business in California, as defined in § 96072, means the entity is actively engaging in any transaction for the purpose of financial or pecuniary gain or profit, and meets any of the following:</p>
 
 <ul>
-<li>Are organized or commercially domiciled in California;</li>
+<li>Is organized or commercially domiciled in California;</li>
 </ul>
 
 <p class="or-divider">OR</p>
 
 <ul>
-<li>Have California sales exceed $757,070 or 25% of total sales </li>
+<li>Has California sales exceeding $757,070 or 25% of the entity's total sales </li>
 </ul>
 `,
 answers:[
 {label:"Yes",value:"yes",note:"Continue to revenue test"},
-{label:"No",value:"no",note:"Likely not subject to reporting requirements under HSC § 38532 for the 2026 reporting cycle"}
+{label:"No",value:"no",note:"Not subject to reporting requirements under HSC § 38532 for the 2026 reporting cycle"}
 ]
 },
 {
@@ -681,7 +681,7 @@ infoHtml:`
 `,
 answers:[
 {label:"Yes",value:"yes",note:"Entity appears in scope for the 2026 reporting cycle; continue to reporting pathway"},
-{label:"No",value:"no",note:"Likely not subject to reporting requirements under HSC § 38532 for the 2026 reporting cycle"}
+{label:"No",value:"no",note:"Not subject to reporting requirements under HSC § 38532 for the 2026 reporting cycle"}
 ]
 },
 {
@@ -695,7 +695,7 @@ infoHtml:`
 `,
 answers:[
 {label:"Yes",value:"yes",note:"Check whether parent will report for the 2026 reporting cycle"},
-{label:"No",value:"no",note:"Entity likely prepares its own report for the 2026 reporting cycle"}
+{label:"No",value:"no",note:"Entity prepares its own report for the 2026 reporting cycle"}
 ]
 },
 {
@@ -703,8 +703,8 @@ id:"parent_agreed",
 tag:"Step 6",
 title:"Will the parent submit a consolidated report that includes this entity?",
 answers:[
-{label:"Yes",value:"yes",note:"Likely covered in parent report for the 2026 reporting cycle"},
-{label:"No",value:"no",note:"Entity likely prepares its own report for the 2026 reporting cycle"}
+{label:"Yes",value:"yes",note:"Covered in parent report for the 2026 reporting cycle"},
+{label:"No",value:"no",note:"Entity prepares its own report for the 2026 reporting cycle"}
 ]
 }
 ];
@@ -806,7 +806,7 @@ return;
 }
 
 if(responses.us_based==="no"){
-outScopeReason.textContent="Based on the answers provided, because the entity is not U.S.-based, it likely is not directly subject to § 38532 for the 2026 reporting cycle under this screening tool. HSC § 38532 applies to U.S.-based entities. A foreign parent could still submit a consolidated report on behalf of an in-scope U.S.-based subsidiary, but the non-U.S. parent itself is not directly in scope on that basis alone.";
+outScopeReason.textContent="Based on the answers provided, because the entity is not U.S.-based, it is not subject to § 38532 for the 2026 reporting cycle under this screening tool. HSC § 38532 applies to U.S.-based entities. A foreign parent could still submit a consolidated report on behalf of an in-scope U.S.-based subsidiary, but the non-U.S. parent itself is not in scope on that basis alone.";
 return;
 }
 
@@ -836,8 +836,8 @@ if(r.parent_assoc==="no"){
 return{
 done:true,
 type:"self_report",
-title:"Likely prepare an HSC § 38532 report for the 2026 reporting cycle.",
-message:"Based on the answers entered, the entity appears in scope and would likely prepare its own § 38532 report for the 2026 reporting cycle. With no parent by corporate association, consolidated parent reporting does not appear available.",
+title:"Prepare an HSC § 38532 report for the 2026 reporting cycle.",
+message:"Based on the answers entered, the entity appears in scope and would prepare its own § 38532 report for the 2026 reporting cycle. With no parent by corporate association, consolidated parent reporting does not appear available.",
 basis:[
 ]
 };
@@ -847,7 +847,7 @@ if(r.parent_assoc==="yes" && r.parent_agreed==="yes"){
 return{
 done:true,
 type:"parent_report",
-title:"Likely included in a consolidated parent HSC § 38532 report for the 2026 reporting cycle.",
+title:"Included in a consolidated parent HSC § 38532 report for the 2026 reporting cycle.",
 message:"The entity appears in scope, but the parent may satisfy the requirement by reporting on the entity’s behalf in a consolidated report for the 2026 reporting cycle.",
 basis:[
 
@@ -859,8 +859,8 @@ if(r.parent_assoc==="yes" && r.parent_agreed==="no"){
 return{
 done:true,
 type:"self_report",
-title:"Likely prepare a standalone HSC § 38532 report for the 2026 reporting cycle.",
-message:"The entity appears in scope, and because the parent is not reporting on its behalf, it likely needs its own § 38532 report for the 2026 reporting cycle.",
+title:"Prepare a standalone HSC § 38532 report for the 2026 reporting cycle.",
+message:"The entity appears in scope, and because the parent is not reporting on its behalf, it needs its own § 38532 report for the 2026 reporting cycle.",
 basis:[
 ]
 };
@@ -998,7 +998,7 @@ statusPill.textContent="Consolidated report";
 statusText.textContent="The entity appears in scope, but the parent may cover it through a consolidated report.";
 }else{
 statusPill.className="pill good";
-statusPill.textContent="Likely prepare report";
+statusPill.textContent="Prepare report";
 statusText.textContent="The entity appears to need its own HSC § 38532 report.";
 }
 }
